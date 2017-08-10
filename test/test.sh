@@ -41,5 +41,4 @@ function test_list() {
 test_list "$complex_test_simple_obj_a_list" &&
 
 # Output result
-echo "Tests ok!" || echo "Error on execute tests!"
-
+echo "Tests ok!" || echo "Error on execute tests!" && exit 1
