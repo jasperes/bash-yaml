@@ -4,7 +4,8 @@ person:
   email: jonathan@email.com
 
 persons:
-  - name: Maria
+  - 
+    name: Maria
     age: 88
     email: maria@email.com
   -
@@ -12,15 +13,12 @@ persons:
     age: 77
     email: joao@email.com
 
-simple-list:
-  - value 1
-  - value b
-  - &&T
 complex_test:
-  simple-obj:
+  simple_obj:
     attr: "value"
     other_attr: other "value"
-    a-list:
+    a_list:
+      - 0
       - 1
       - 2
       - 3
@@ -30,5 +28,3 @@ complex_test:
       - 7
       - 8
       - 9
-      - 0
-
