@@ -1,6 +1,6 @@
 os:
   - linux
-  - osx
+  
 language: bash
 
 before_script:
