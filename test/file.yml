@@ -2,8 +2,9 @@
 person:
   name: Jonathan
   age: 99
-  email: jonathan@email.com
+  email: jonathan@email.com  #inline comment
 
+# A comment just to say: list of persons
 persons:
   - 
     name: Maria
