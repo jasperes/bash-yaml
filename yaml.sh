@@ -12,6 +12,7 @@ function parse_yaml() {
     fs="$(echo @|tr @ '\034')"
 
     (
+        sed 's/--//g' |
         sed 's/\"/\\\"/g' |
         sed -ne "s|^\($s\)\($w\)$s:$s\"\(.*\)\"$s\$|\1$fs\2$fs\3|p" \
             -e "s|^\($s\)\($w\)$s[:-]$s\(.*\)$s\$|\1$fs\2$fs\3|p" |
