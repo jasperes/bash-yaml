@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Based on https://gist.github.com/pkuczynski/8665367
+
 function parse_yaml() {
     local yaml_file=$1
     local prefix=$2
