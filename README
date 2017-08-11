@@ -1,6 +1,8 @@
 bash-yaml
 ---------
 
+!https://travis-ci.org/jasperes/bash-yaml.svg?branch=master!:https://travis-ci.org/jasperes/bash-yaml
+
 Bash script to read a Yaml file and create variables.
 
 # Current problems found:
