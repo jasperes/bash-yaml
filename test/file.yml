@@ -2,7 +2,7 @@
 person:
   name: Jonathan
   age: 99
-  email: jonathan@email.com  #inline comment
+  email: jonathan@email.com
 
 # A comment just to say: list of persons
 persons:
@@ -31,3 +31,15 @@ complex_test:
       - 7
       - 8
       - 9
+
+--
+more_tests:
+  double_dashes: --ok
+  inline_comment: something #comment
+  hash1: a#hash
+  hash2: "a#hash"
+  hash3: "a   #hash"
+  hash4: #hi
+  hash5: "#hi"
+  comment_with_hash: an#hash #with an comment
+  comment_in_string: "a string..." #a comment
