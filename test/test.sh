@@ -40,5 +40,14 @@ function test_list() {
 
 test_list "$complex_test_simple_obj_a_list" &&
 
+[ "$more_tests_double_dashes" = "--ok" ] &&
+[ "$more_tests_inline_comment" = "something" ] &&
+[ "$more_tests_hash1" = "a#hash" ] &&
+[ "$more_tests_hash2" = "\"a#hash\"" ] &&
+[ "$more_tests_hash3" = "\"a   #hash\"" ] &&
+[ "$more_tests_hash5" = "\"#hi\"" ] &&
+[ "$more_tests_comment_with_hash" = "an#hash" ] &&
+[ "$more_tests_comment_in_string" = "\"a string...\"" ] &&
+
 # Output result
 echo "Tests ok!" && exit 0 || echo "Error on execute tests!" && exit 1
