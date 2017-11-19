@@ -2,18 +2,18 @@
 person:
   name: Jonathan
   age: 99
-  email: jonathan@email.com
+  email: jonathan@email.com #inline comments
 
 # A comment just to say: list of persons
 persons:
   - 
-    name: Maria
-    age: 88
-    email: maria@email.com
+    name: 'Maria'
+    age: '88'
+    email: 'maria@email.com'
   -
-    name: João
-    age: 77
-    email: joao@email.com
+    name: "João"
+    age: "77"
+    email: "joao@email.com"
 
 --
 complex_test:
@@ -36,10 +36,16 @@ complex_test:
 more_tests:
   double_dashes: --ok
   inline_comment: something #comment
-  hash1: a#hash
-  hash2: "a#hash"
-  hash3: "a   #hash"
-  hash4: #hi
-  hash5: "#hi"
+  hash_commented: #hi
   comment_with_hash: an#hash #with an comment
-  comment_in_string: "a string..." #a comment
+  hash: a#hash
+  single_quotes:
+    hash1: 'a#hash'
+    hash2: 'a   #hash'
+    hash3: '#hi'
+    comment_in_string: 'a string...' #a comment
+  double_quotes:
+    hash1: "a#hash"
+    hash2: "a   #hash"
+    hash3: "#hi"
+    comment_in_string: "a string..." #a comment
