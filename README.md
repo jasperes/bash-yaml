@@ -4,9 +4,29 @@
 
 Bash script to read a Yaml file and create variables.
 
+## Getting Started
 
-## Current problems found:
+### Usage
+
+Copy `yaml.sh` file and import on your script: `source yaml.sh`
+
+Then two functions are viable:
+
+* `parse_yaml`: Output result from the readed yaml file.
+* `create_variables`: Read and create variables based on yaml file passed by argument.
+
+Look at `test` folder, found on this project, to see more.
+
+### Testing
+
+You can test if your yaml file will be readed correctly based on test folder.
+
+## Known issues
 
 - Can't parse "some-property".
 - Can't parse a object list with first attribute like "- name: MyName". Must be down.
 - Object lists must be informed all attributes. Null must be "attr: ".
+
+## Credits
+
+This project was started based on @pkuczynski gist. Found it [here](https://gist.github.com/pkuczynski/8665367)
