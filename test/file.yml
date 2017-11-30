@@ -35,6 +35,9 @@ complex_test:
 --
 more_tests:
   double_dashes: --ok
+  dot_start: .dot
+  some-propertie: some-propertie ok!
+  domain.com: domain.com ok!
   inline_comment: something #comment
   hash_commented: #hi
   comment_with_hash: an#hash #with an comment
