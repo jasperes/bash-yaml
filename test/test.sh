@@ -6,8 +6,14 @@ cd "$(dirname "$(readlink -f "$0")")"
 source ../yaml.sh
 
 # Debug
-if [ "$1" = "--debug" ]; then
-	parse_yaml file.yml && echo
+DEBUG="$1"
+
+function is_debug() {
+    [ "$DEBUG" = "--debug" ] && return 0 || return 1
+}
+
+if is_debug; then
+    parse_yaml file.yml && echo
 fi
 
 # Execute
@@ -17,9 +23,21 @@ create_variables file.yml
 function test_list() {
 	local list=$1
 
-	for i in ${!list[*]}; do
-		[ "${list[i]}" = "$i" ] || return 1
+    if is_debug; then
+        echo "All values from list: ${list[*]}";
+    fi
+
+    x=0
+	for i in ${list[*]}; do
+        if is_debug; then
+            echo "Item: $i"; 
+        fi
+
+        [ "$i" = "$x" ] || return 1
+        x="$((x+1))"
 	done
+
+    if is_debug; then echo; fi
 }
 
 # Tests
@@ -38,7 +56,7 @@ function test_list() {
 [ "$complex_test_simple_obj_attr" = "\"value\"" ] &&
 [ "$complex_test_simple_obj_other_attr" = "other \"value\"" ] &&
 
-test_list "$complex_test_simple_obj_a_list" &&
+test_list "${complex_test_simple_obj_a_list[*]}" &&
 
 [ "$more_tests_double_dashes" = "--ok" ] &&
 [ "$more_tests_dot_start" = ".dot" ] &&
