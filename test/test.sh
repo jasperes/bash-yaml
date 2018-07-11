@@ -75,6 +75,8 @@ test_list "${complex_test_simple_obj_a_list[*]}" &&
 [ "$more_tests_double_quotes_hash2" = "\"a   #hash\"" ] &&
 [ "$more_tests_double_quotes_hash3" = "\"#hi\"" ] &&
 [ "$more_tests_double_quotes_comment_in_string" = "\"a string...\"" ] &&
+[ "$more_tests_a_multi_dash_property" = "OK" ] &&
+[ "$more_tests_a_multi_dot_property" = "OK" ] &&
 
 # Output result
 echo "Tests ok!" && exit 0 || echo "Error on execute tests!" && exit 1

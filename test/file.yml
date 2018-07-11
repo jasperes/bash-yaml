@@ -52,3 +52,5 @@ more_tests:
     hash2: "a   #hash"
     hash3: "#hi"
     comment_in_string: "a string..." #a comment
+  a-multi-dash-property: OK
+  a.multi.dot.property: OK
