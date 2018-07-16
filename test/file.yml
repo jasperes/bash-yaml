@@ -54,3 +54,5 @@ more_tests:
     comment_in_string: "a string..." #a comment
   a-multi-dash-property: result-is=OK
   a.multi.dot.property: result.is=OK
+  a-property-that-has-quite-a-number-of-dashes: result-is=OK
+  a-property-that-has-dashes.and.dots: result-is.absolutely=fine.and-perfect
