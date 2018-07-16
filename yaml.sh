@@ -30,9 +30,15 @@ function parse_yaml() {
                 }
             }' |
             
-        sed -e 's/_=/+=/g' \
-            -e '/\..*=/s|\.|_|' \
-            -e '/\-.*=/s|\-|_|'
+        sed -e 's/_=/+=/g' |
+        awk 'BEGIN {
+                 FS="=";
+                 OFS="="
+             }
+             /(-|\.).*=/ {
+                 gsub("-|\\.", "_", $1)
+             }
+             { print }'
 
     ) < "$yaml_file"
 }
