@@ -20,6 +20,12 @@ complex_test:
   simple_obj:
     attr: "value"
     other_attr: other "value"
+    chaos_list:
+      - attr: value1
+        otherv: value1v
+      -
+        attr: value2
+        otherv: "value2v"
     a_list:
       - 0
       - 1
