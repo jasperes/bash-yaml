@@ -23,7 +23,6 @@ You can test if your yaml file will be readed correctly based on test folder.
 
 ## Known issues
 
-- Can't parse a object list with first attribute like "- name: MyName". Must be down.
 - Object lists must be informed all attributes. Null must be "attr: ".
 
 ## Credits

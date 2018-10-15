@@ -56,6 +56,11 @@ function test_list() {
 [ "$complex_test_simple_obj_attr" = "\"value\"" ] &&
 [ "$complex_test_simple_obj_other_attr" = "other \"value\"" ] &&
 
+[ "${complex_test_simple_obj_chaos_list__attr[0]}" = "value1" ] &&
+[ "${complex_test_simple_obj_chaos_list__otherv[0]}" = "value1v" ] &&
+[ "${complex_test_simple_obj_chaos_list__attr[1]}" = "value2" ] &&
+[ "${complex_test_simple_obj_chaos_list__otherv[1]}" = "\"value2v\"" ] &&
+
 test_list "${complex_test_simple_obj_a_list[*]}" &&
 
 [ "$more_tests_double_dashes" = "--ok" ] &&
