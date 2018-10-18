@@ -6,11 +6,12 @@ function parse_yaml() {
     local yaml_file=$1
     local prefix=$2
     local s
+    local b
     local w
     local fs
 
     s='[[:space:]]*'
-    b='[[:space:]]+'
+    b="[[:space:]]$s"
     w='[a-zA-Z0-9_.-]*'
     fs="$(echo @|tr @ '\034')"
 
