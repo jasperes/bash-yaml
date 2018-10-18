@@ -31,7 +31,7 @@ function parse_yaml() {
             }
         }' |
         
-    sed -e 's/_=/+=/g' |
+    sed -e 's/_=/+=/g' -e 's/\$/\\\$/g' |
     
     awk 'BEGIN {
              FS="=";
