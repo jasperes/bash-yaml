@@ -1,11 +1,11 @@
-os: 
+os:
   - linux
   - osx
 
 language: bash
 
 script:
-  - bash ./test/test.sh --debug
+  - npm test
 
 notifications:
   email: false
