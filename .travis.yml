@@ -2,10 +2,14 @@ os:
   - linux
   - osx
 
-language: bash
+language:
+  - node_js
+  - bash
 
-script:
-  - npm test
+node_js: 8
+
+install: npm install --only=dev
+script: npm test
 
 notifications:
   email: false
