@@ -9,7 +9,8 @@
   "homepage": "https://github.com/jasperes/bash-yaml#readme",
   "os": [
     "linux",
-    "osx"
+    "darwin",
+    "!win32"
   ],
   "keywords": [
     "bash-yaml",
