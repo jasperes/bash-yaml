@@ -2,8 +2,8 @@
 
 # Configure
 set -e
-cd "$(dirname "$(readlink -f "$0")")"
-source ../yaml.sh
+cd "$(dirname "${BASH_SOURCE[0]}")"
+source ./../yaml.sh
 
 # Debug
 DEBUG="$1"
