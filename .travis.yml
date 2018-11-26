@@ -8,8 +8,16 @@ language:
 
 node_js: 8
 
-install: npm install --only=dev
-script: npm test
+before_install:
+  - git submodule add https://github.com/TravisToolbox/shellcheck-travis.git shellcheck-travis-build
+install:
+  - ./shellcheck-travis-build/install.sh
+  - npm install --save-dev editorconfig-checker
+script:
+  - set -e
+  - ./shellcheck-travis-build/build.sh
+  - ./node_modules/.bin/editorconfig-checker --list-files --exclude-pattern './shellcheck-travis-build/*'
+  - bash ./test/test.sh --debug
 
 notifications:
   email: false
