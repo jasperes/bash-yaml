@@ -13,12 +13,12 @@ function parse_yaml() {
     w='[a-zA-Z0-9_.-]*'
     fs="$(echo @|tr @ '\034')"
 
-    sed -e "/- [^\"][^\'].*:/s|\([ ]*\)- \($s\)|\1-\n  \1\2|g" "$yaml_file" |
+    sed -e "/- [^\"][^\'].*: /s|\([ ]*\)- \($s\)|\1-\n  \1\2|g" "$yaml_file" |
 
     sed -ne '/^--/s|--||g; s|\"|\\\"|g; s/[[:space:]]*$//g;' \
         -e "/#.*[\"\']/!s| #.*||g; /^#/s|#.*||g;" \
         -e "s|^\($s\)\($w\)$s:$s\"\(.*\)\"$s\$|\1$fs\2$fs\3|p" \
-        -e "s|^\($s\)\($w\)$s[:-]$s\(.*\)$s\$|\1$fs\2$fs\3|p" |
+        -e "s|^\($s\)\($w\)${s}[:-]$s\(.*\)$s\$|\1$fs\2$fs\3|p" |
 
     awk -F"$fs" '{
         indent = length($1)/2;
@@ -34,13 +34,13 @@ function parse_yaml() {
     sed -e 's/_=/+=/g' |
     
     awk 'BEGIN {
-             FS="=";
-             OFS="="
-         }
-         /(-|\.).*=/ {
-             gsub("-|\\.", "_", $1)
-         }
-         { print }'
+            FS="=";
+            OFS="="
+        }
+        /(-|\.).*=/ {
+            gsub("-|\\.", "_", $1)
+        }
+        { print }'
 }
 
 function create_variables() {

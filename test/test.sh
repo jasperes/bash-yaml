@@ -55,6 +55,7 @@ function test_list() {
 
 [ "$complex_test_simple_obj_attr" = "\"value\"" ] &&
 [ "$complex_test_simple_obj_other_attr" = "other \"value\"" ] &&
+[ "$complex_test_simple_obj_http" = "http://some.endpoint.com" ] &&
 
 [ "${complex_test_simple_obj_chaos_list__attr[0]}" = "value1" ] &&
 [ "${complex_test_simple_obj_chaos_list__otherv[0]}" = "value1v" ] &&
