@@ -26,6 +26,6 @@
   },
   "devDependencies": {
     "editorconfig-checker": "^1.3.3",
-    "shellcheck": "^0.0.8"
+    "shellcheck": "^0.1.0"
   }
 }
