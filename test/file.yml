@@ -6,7 +6,7 @@ person:
 
 # A comment just to say: list of persons
 persons:
-  - 
+  -
     name: 'Maria'
     age: '88'
     email: 'maria@email.com'

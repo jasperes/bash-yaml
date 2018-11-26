@@ -3,7 +3,7 @@
 # Configure
 set -e
 cd "$(dirname "${BASH_SOURCE[0]}")"
-source ./../yaml.sh
+source ./../script/yaml.sh
 
 # Debug
 DEBUG="$1"
@@ -21,21 +21,21 @@ create_variables file.yml
 
 # Functions
 function test_list() {
-	local list=$1
+    local list=$1
 
     if is_debug; then
         echo "All values from list: ${list[*]}";
     fi
 
     x=0
-	for i in ${list[*]}; do
+    for i in ${list[*]}; do
         if is_debug; then
-            echo "Item: $i"; 
+            echo "Item: $i";
         fi
 
         [ "$i" = "$x" ] || return 1
         x="$((x+1))"
-	done
+    done
 
     if is_debug; then echo; fi
 }
