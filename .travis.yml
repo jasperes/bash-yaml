@@ -1,23 +1,28 @@
-os:
-  - linux
-  - osx
+jobs:
+  include:
+    - stage: lint
+      os: linux
+      language: node_js
+      node_js: 8
+      before_install:
+        - git submodule add https://github.com/TravisToolbox/shellcheck-travis.git shellcheck-travis-build
+      install:
+        - ./shellcheck-travis-build/install.sh
+        - npm install editorconfig-checker
+      script:
+        - set -e
+        - ./shellcheck-travis-build/build.sh
+        - ./node_modules/.bin/editorconfig-checker --list-files --exclude-pattern './shellcheck-travis-build/*'
 
-language:
-  - node_js
-  - bash
+    - stage: test
+      os: linux
+      language: bash
+      script: bash ./test/test.sh --debug
 
-node_js: 8
-
-before_install:
-  - git submodule add https://github.com/TravisToolbox/shellcheck-travis.git shellcheck-travis-build
-install:
-  - ./shellcheck-travis-build/install.sh
-  - npm install --save-dev editorconfig-checker
-script:
-  - set -e
-  - ./shellcheck-travis-build/build.sh
-  - ./node_modules/.bin/editorconfig-checker --list-files --exclude-pattern './shellcheck-travis-build/*'
-  - bash ./test/test.sh --debug
+    - stage: test
+      os: osx
+      language: bash
+      script: bash ./test/test.sh --debug
 
 notifications:
   email: false
