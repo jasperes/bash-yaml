@@ -5,14 +5,14 @@ jobs:
       language: node_js
       node_js: 8
       before_install:
-        - git submodule add https://github.com/TravisToolbox/shellcheck-travis.git shellcheck-travis-build
+        - git clone https://github.com/TravisToolbox/shellcheck-travis.git
       install:
-        - ./shellcheck-travis-build/install.sh
+        - ./shellcheck-travis/install.sh
         - npm install editorconfig-checker
       script:
         - set -e
-        - ./shellcheck-travis-build/build.sh
-        - ./node_modules/.bin/editorconfig-checker --list-files --exclude-pattern './shellcheck-travis-build/*'
+        - ./shellcheck-travis/scan.sh
+        - ./node_modules/.bin/editorconfig-checker --list-files --exclude-pattern './shellcheck-travis/*'
 
     - stage: test
       os: linux
