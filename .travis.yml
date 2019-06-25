@@ -12,7 +12,7 @@ jobs:
       script:
         - set -e
         - ./shellcheck-travis/scan.sh
-        - ./node_modules/.bin/editorconfig-checker --list-files --exclude-pattern './shellcheck-travis/*'
+        - ./node_modules/.bin/editorconfig-checker -verbose -exclude 'shellcheck-travis'
 
     - stage: test
       os: linux
