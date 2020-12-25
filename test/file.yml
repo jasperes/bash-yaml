@@ -64,3 +64,4 @@ more_tests:
   a.multi.dot.property: result.is=OK
   a-property-that-has-quite-a-number-of-dashes: result-is=OK
   a-property-that-has-dashes.and.dots: result-is.absolutely=fine.and-perfect
+  value-with-dollar-signs: I know your $HOME. I live at $(pwd)
