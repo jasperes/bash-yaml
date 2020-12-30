@@ -1,6 +1,7 @@
 # bash-yaml
 
-[![Build Status](https://travis-ci.org/jasperes/bash-yaml.svg?branch=master)](https://travis-ci.org/jasperes/bash-yaml)
+[![Tests](https://github.com/jasperes/bash-yaml/workflows/Tests/badge.svg)](https://github.com/jasperes/bash-yaml/actions?query=workflow%3ATests)
+[![Lint](https://github.com/jasperes/bash-yaml/workflows/Lint/badge.svg)](https://github.com/jasperes/bash-yaml/actions?query=workflow%3ALint)
 
 Bash script to read a Yaml file and create variables.
 
