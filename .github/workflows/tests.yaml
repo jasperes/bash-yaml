@@ -1,0 +1,25 @@
+name: Tests
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+
+  test-linux:
+    name: Test Linux
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: bash ./test/test.sh --debug
+
+  test-osx:
+    name: Test OSX
+    runs-on: macOS-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: bash ./test/test.sh --debug

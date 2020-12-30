@@ -1,0 +1,32 @@
+name: Lint
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+
+  shellcheck:
+    name: Shellcheck
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: |
+            SCVER="0.7.1"
+            wget -qO- https://github.com/koalaman/shellcheck/releases/download/v${SCVER}/shellcheck-v${SCVER}.linux.x86_64.tar.xz | tar -xJf -
+            shellcheck-v${SCVER}/shellcheck ./script/yaml.sh
+
+  editorconfig:
+    name: Editorconfig
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 8.x
+      - run: npm install editorconfig-checker
+      - run: ./node_modules/.bin/editorconfig-checker -verbose
