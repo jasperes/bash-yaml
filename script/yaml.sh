@@ -18,6 +18,7 @@ parse_yaml() {
         sed -e '/- [^\“]'"[^\']"'.*: /s|\([ ]*\)- \([[:space:]]*\)|\1-\'$'\n''  \1\2|g' |
 
         sed -ne '/^--/s|--||g; s|\"|\\\"|g; s/[[:space:]]*$//g;' \
+            -e 's/\$/\\\$/g' \
             -e "/#.*[\"\']/!s| #.*||g; /^#/s|#.*||g;" \
             -e "s|^\($s\)\($w\)$s:$s\"\(.*\)\"$s\$|\1$fs\2$fs\3|p" \
             -e "s|^\($s\)\($w\)${s}[:-]$s\(.*\)$s\$|\1$fs\2$fs\3|p" |
@@ -29,7 +30,7 @@ parse_yaml() {
             for (i in vname) {if (i > indent) {delete vname[i]}}
                 if (length($3) > 0) {
                     vn=""; for (i=0; i<indent; i++) {vn=(vn)(vname[i])("_")}
-                    printf("%s%s%s%s=(\"%s\")\n", "'"$prefix"'",vn, $2, conj[indent-1], gensub("\\$", "\\\\$", "g", $3));
+                    printf("%s%s%s%s=(\"%s\")\n", "'"$prefix"'",vn, $2, conj[indent-1], $3);
                 }
             }' |
 
