@@ -49,8 +49,8 @@ parse_yaml() {
 
 unset_variables() {
   # Pulls out the variable names and unsets them.
-  local variable_string
-  mapfile -t variable_string <<< "$*"
+  #shellcheck disable=SC2048,SC2206 #Permit variables without quotes
+  local variable_string=($*)
   unset variables
   variables=()
   for variable in "${variable_string[@]}" ; do
