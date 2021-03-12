@@ -58,9 +58,9 @@ unset_variables() {
     variables+=("$tmpvar")
   done
   for variable in "${variables[@]}"; do
-    if [ -n "$variable" ] ; then
-      unset "$variable"
-    fi
+  if [ -n "$variable" ] ; then
+    unset "$variable"
+  fi
   done
 }
 
