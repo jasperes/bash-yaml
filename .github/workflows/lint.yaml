@@ -16,9 +16,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: |
-            SCVER="0.7.1"
-            wget -qO- https://github.com/koalaman/shellcheck/releases/download/v${SCVER}/shellcheck-v${SCVER}.linux.x86_64.tar.xz | tar -xJf -
-            shellcheck-v${SCVER}/shellcheck ./script/yaml.sh
+            sudo apt-get -y update && sudo apt-get -y install shellcheck
+            find $GITHUB_WORKSPACE -type f -and \( -name "*.sh" \) | xargs shellcheck
 
   editorconfig:
     name: Editorconfig
