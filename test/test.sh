@@ -18,15 +18,15 @@ function is_debug() {
 }
 
 if is_debug; then
-    parse_yaml file.yml && echo
-    parse_frontmatter frontmatter.md && echo
-    parse_frontmatter nofrontmatter.md && echo
+    parse_yaml file.yml &&
+        parse_frontmatter frontmatter.md &&
+        parse_frontmatter nofrontmatter.md
 fi
 
 # Execute
-create_variables file.yml
-eval "$(parse_frontmatter frontmatter.md)"
-eval "$(parse_frontmatter nofrontmatter.md)"
+create_variables file.yml &&
+    eval "$(parse_frontmatter frontmatter.md)" &&
+    eval "$(parse_frontmatter nofrontmatter.md)"
 
 # Functions
 function test_list() {
@@ -100,8 +100,8 @@ function test_list() {
     [ "${fmtags_[3]}" = "down" ] &&
     [ "${fmlayout}" = "post" ] &&
     [ "${fmtitle}" = "frontmatter like a boss" ] &&
-    [ "${this_var_cannot_exist}" = "" ] &&
-    [ "${this_var_cannot_exist2}" = "" ] &&
+    [ -z "${this_var_cannot_exist}" ] &&
+    [ -z "${this_var_cannot_exist2}" ] &&
 
     # Output result
     echo "Tests ok!" && exit 0 || echo "Error on execute tests!" && exit 1
