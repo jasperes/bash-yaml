@@ -41,7 +41,7 @@ You can test if your yaml or frontmatter file will be readed correctly based on 
 ## Known issues
 
 - Object lists must be informed all attributes. Null must be "attr: ".
-- 
+- User must use -f option for Frontmatter.
 
 ## Credits
 

@@ -3,8 +3,8 @@ fmcategories:
     - Development
     - Markdown
 fmdate: "2012-04-06"
-fmdescription: frontmatter in yml is a simple way to add metadata 
-    to your post  
+fmdescription: frontmatter in yml is a simple way to add metadata
+    to your post
 fmslug: frontmatter-rulez
 fmtags:
     - front
@@ -14,7 +14,7 @@ fmtags:
 fmlayout: post
 fmtitle: frontmatter like a boss
 ---
-This is the Text 
+This is the Text
 The text continues
 So on
 this_var_cannot_exist: ok
