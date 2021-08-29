@@ -104,7 +104,7 @@ parse_frontmatter() {
         }
         {
             if (in_fm && is_not_dash) {
-                print $0; 
+                print $0;
             }
             is_not_dash=1
         }' |
