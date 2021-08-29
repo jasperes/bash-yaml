@@ -5,6 +5,6 @@
     "global": "false",
     "install": "make install",
     "scripts": [
-        "yaml.sh"
+        "scripts/yaml.sh"
     ]
 }
