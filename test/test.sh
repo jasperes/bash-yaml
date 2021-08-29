@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/bash -e
 # shellcheck disable=SC2154
 # shellcheck disable=SC1091
 
@@ -18,15 +18,15 @@ function is_debug() {
 }
 
 if is_debug; then
-    parse_yaml file.yml &&
-        parse_frontmatter frontmatter.md &&
-        parse_frontmatter nofrontmatter.md
+    parse_yaml file.yml
+    # parse_frontmatter frontmatter.md &&
+    # parse_frontmatter nofrontmatter.md
 fi
 
 # Execute
-create_variables file.yml &&
-    eval "$(parse_frontmatter frontmatter.md)" &&
-    eval "$(parse_frontmatter nofrontmatter.md)"
+create_variables file.yml
+# eval "$(parse_frontmatter frontmatter.md)" &&
+# eval "$(parse_frontmatter nofrontmatter.md)"
 
 # Functions
 function test_list() {
@@ -89,19 +89,19 @@ function test_list() {
     [ "$more_tests_value_with_dollar_signs" = "I know your \$HOME. I live at \$(pwd)" ] &&
 
     #Frontmatter vars
-    [ "${fmcategories_[0]}" = "Development" ] &&
-    [ "${fmcategories_[1]}" = "Markdown" ] &&
-    [ "${fmdate}" = "\"2012-04-06\"" ] &&
-    [ "${fmdescription}" = "frontmatter in yml is a simple way to add metadata" ] &&
-    [ "${fmslug}" = "frontmatter-rulez" ] &&
-    [ "${fmtags_[0]}" = "front" ] &&
-    [ "${fmtags_[1]}" = "matter" ] &&
-    [ "${fmtags_[2]}" = "mark" ] &&
-    [ "${fmtags_[3]}" = "down" ] &&
-    [ "${fmlayout}" = "post" ] &&
-    [ "${fmtitle}" = "frontmatter like a boss" ] &&
-    [ -z "${this_var_cannot_exist}" ] &&
-    [ -z "${this_var_cannot_exist2}" ] &&
+    # [ "${fmcategories_[0]}" = "Development" ] &&
+    # [ "${fmcategories_[1]}" = "Markdown" ] &&
+    # [ "${fmdate}" = "\"2012-04-06\"" ] &&
+    # [ "${fmdescription}" = "frontmatter in yml is a simple way to add metadata" ] &&
+    # [ "${fmslug}" = "frontmatter-rulez" ] &&
+    # [ "${fmtags_[0]}" = "front" ] &&
+    # [ "${fmtags_[1]}" = "matter" ] &&
+    # [ "${fmtags_[2]}" = "mark" ] &&
+    # [ "${fmtags_[3]}" = "down" ] &&
+    # [ "${fmlayout}" = "post" ] &&
+    # [ "${fmtitle}" = "frontmatter like a boss" ] &&
+    # [ -z "${this_var_cannot_exist}" ] &&
+    # [ -z "${this_var_cannot_exist2}" ] &&
 
     # Output result
     echo "Tests ok!" && exit 0 || echo "Error on execute tests!" && exit 1

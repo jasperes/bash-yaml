@@ -23,6 +23,5 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
-      - run: sed --version
       - run: awk --version
       - run: bash ./test/test.sh --debug
