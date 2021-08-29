@@ -24,7 +24,6 @@ parse_yaml() {
     fs="$(echo @ | tr @ '\034')"
 
     echo "$input" |
-        (
             sed -e '/- [^\“]'"[^\']"'.*: /s|\([ ]*\)- \([[:space:]]*\)|\1-\'$'\n''  \1\2|g' |
                 sed -ne '/^--/s|--||g; s|\"|\\\"|g; s/[[:space:]]*$//g;' \
                     -e 's/\$/\\\$/g' \
@@ -50,7 +49,6 @@ parse_yaml() {
                 gsub("-|\\.", "_", $1)
             }
             { print }'
-        )
 }
 
 unset_variables() {
