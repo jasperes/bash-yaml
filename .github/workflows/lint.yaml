@@ -4,20 +4,21 @@ on:
   push:
     branches:
       - master
+      - add-frontmatter
   pull_request:
     branches:
       - master
+      - add-frontmatter
 
 jobs:
-
   shellcheck:
     name: Shellcheck
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - run: |
-            sudo apt-get -y update && sudo apt-get -y install shellcheck
-            find $GITHUB_WORKSPACE -type f -and \( -name "*.sh" \) | xargs shellcheck
+          sudo apt-get -y update && sudo apt-get -y install shellcheck
+          find $GITHUB_WORKSPACE -type f -and \( -name "*.sh" \) | xargs shellcheck
 
   editorconfig:
     name: Editorconfig
