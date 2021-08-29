@@ -5,7 +5,7 @@
 
 parse_yaml() {
     local input=""
-    if [ -z "${1}" ]; then
+    if [ -z "${1}" ] || [ "${1}" = "-" ]; then
         input="$(cat)"
     else
         input=$(cat "${1}")
@@ -76,12 +76,17 @@ create_variables() {
 }
 
 parse_frontmatter() {
-    local yaml_file="$1"
+    local input=""
+    if [ -z "${1}" ] || [ "${1}" = "-" ]; then
+        input="$(cat)"
+    else
+        input=$(cat "${1}")
+    fi
     local prefix="$2"
     local yaml_string
-    if head -1 "$yaml_file" | grep -e '^---$' >/dev/null; then
-        sed -n '1{/^---$/!q};1,/^---$/{/^---$/!p};d' "$yaml_file" |
-            parse_yaml "${1}" "${2}"
+    if echo "$input" | head -1 | grep -e '^---$' >/dev/null; then
+        echo "$input" | sed -n '1{/^---$/!q};1,/^---$/{/^---$/!p};d' |
+            parse_yaml - "${2}"
     fi
 }
 
@@ -92,8 +97,6 @@ if [ "-f" = "${1}" ]; then
 fi
 
 # Execute parse_yaml() direct from command line
-
-# Execute parse_yaml() direct from command line
-if [ "" != "${1}" ] && [ "--debug" != "${1}" ]; then
+if [ "" != "${1}" ] && [ "--debug" != "${1}" ] || [ ! -t 0 ]; then
     parse_yaml "${1}" "${2}"
 fi
