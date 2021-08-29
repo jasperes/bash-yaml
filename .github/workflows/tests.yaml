@@ -4,9 +4,11 @@ on:
   push:
     branches:
       - master
+      - add-frontmatter
   pull_request:
     branches:
       - master
+      - add-frontmatter
 
 jobs:
   test-linux:
