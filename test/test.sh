@@ -4,7 +4,6 @@
 
 # Configure
 set -e
-set -x
 cd "$(dirname "${BASH_SOURCE[0]}")"
 source ./../script/yaml.sh
 
@@ -19,6 +18,7 @@ function is_debug() {
 }
 
 if is_debug; then
+    set -x
     parse_yaml file.yml
     parse_frontmatter frontmatter.md
     parse_frontmatter nofrontmatter.md

@@ -85,7 +85,29 @@ parse_frontmatter() {
     local prefix="$2"
     local yaml_string
     if echo "$input" | head -1 | grep -e '^---$' >/dev/null; then
-        echo "$input" | sed -n '1{/^---$/!q};1,/^---$/{/^---$/!p};d' |
+        echo "$input" | awk \
+            'BEGIN {
+            is_first_line=1;
+            is_not_dash=0
+            in_fm=0;
+        }
+        /^---$/ {
+            if (is_first_line) {
+                in_fm=1;
+            }
+        }
+        /^(---)$/ {
+            if (! is_first_line) {
+                in_fm=0;
+            }
+            is_first_line=0;
+        }
+        {
+            if (in_fm && is_not_dash) {
+                print $0; 
+            }
+            is_not_dash=1
+        }' |
             parse_yaml - "${2}"
     fi
 }
