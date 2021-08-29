@@ -75,6 +75,22 @@ create_variables() {
     eval "${yaml_string}"
 }
 
+parse_frontmatter() {
+    local yaml_file="$1"
+    local prefix="$2"
+    local yaml_string
+    if head -1 "$yaml_file" | grep -e '^---$' >/dev/null; then
+        sed -n '1{/^---$/!q};1,/^---$/{/^---$/!p};d' "$yaml_file" |
+            parse_yaml "${1}" "${2}"
+    fi
+}
+
+# Execute parse_frontmatter() direct from command line
+if [ "-f" = "${1}" ]; then
+    parse_frontmatter "${@:2}"
+    exit
+fi
+
 # Execute parse_yaml() direct from command line
 
 if [ "x" != "x${1}" ] && [ "x--debug" != "x${1}" ]; then
