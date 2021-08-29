@@ -20,7 +20,7 @@ jobs:
 
   test-osx:
     name: Test OSX
-    runs-on: macOS-latest
+    runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
       - run: sed --version
