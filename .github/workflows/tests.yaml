@@ -9,12 +9,13 @@ on:
       - master
 
 jobs:
-
   test-linux:
     name: Test Linux
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - run: sed --version
+      - run: awk --version
       - run: bash ./test/test.sh --debug
 
   test-osx:
@@ -22,4 +23,6 @@ jobs:
     runs-on: macOS-latest
     steps:
       - uses: actions/checkout@v2
+      - run: sed --version
+      - run: awk --version
       - run: bash ./test/test.sh --debug
