@@ -1,10 +1,10 @@
 {
     "name": "bash-yaml",
-    "version": "0.0.1",
-    "description": "Bash script to read a Yaml file and create variables.",
+    "version": "0.0.2",
+    "description": "Bash script to read a Yaml or Frontmatter file and create variables.",
     "global": "false",
     "install": "make install",
     "scripts": [
-        "yaml.sh"
+        "script/yaml.sh"
     ]
 }

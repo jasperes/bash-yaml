@@ -6,7 +6,7 @@
 parse_yaml() {
     local input=""
     if [[ -p /dev/stdin ]]; then
-        input="$(cat -)"
+        input="$(cat)"
     else
         input=$(cat "${1}")
     fi
@@ -51,11 +51,6 @@ parse_yaml() {
             }
             { print }'
         )
-}
-
-parse_yaml2() {
-    local yaml_file="$1"
-    parse_yaml_stdin "${@:2}" <"$yaml_file"
 }
 
 unset_variables() {
