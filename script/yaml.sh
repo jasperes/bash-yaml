@@ -97,6 +97,9 @@ if [ "-f" = "${1}" ]; then
 fi
 
 # Execute parse_yaml() direct from command line
-if [ "" != "${1}" ] && [ "--debug" != "${1}" ] || [ ! -t 0 ]; then
+if [ "--debug" == "${1}" ]; then
+    shift
+fi
+if [ "" != "${1}" ] || [ ! -t 0 ]; then
     parse_yaml "${1}" "${2}"
 fi
