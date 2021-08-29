@@ -7,8 +7,8 @@ set -e
 cd "$(dirname "${BASH_SOURCE[0]}")"
 source ./../script/yaml.sh
 
-unset this_var_cannot_exist
-unset this_var_cannot_exist2
+#unset this_var_cannot_exist
+#unset this_var_cannot_exist2
 
 # Debug
 DEBUG="$1"
