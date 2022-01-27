@@ -71,6 +71,7 @@ test_list "${complex_test_simple_obj_a_list[*]}" &&
 [ "$more_tests_some_propertie" = "some-propertie ok!" ] &&
 [ "$more_tests_domain_com" = "domain.com ok!" ] &&
 [ "$more_tests_inline_comment" = "something" ] &&
+[ "$more_tests_hash_commented" = "" ] &&
 [ "$more_tests_comment_with_hash" = "an#hash" ] &&
 [ "$more_tests_hash" = "a#hash" ] &&
 
