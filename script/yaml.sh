@@ -5,7 +5,7 @@
 
 parse_yaml() {
     local yaml_file=$1
-    local prefix=$2
+    local prefix=${2:-}
     local s
     local w
     local fs
