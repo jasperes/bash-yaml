@@ -71,6 +71,6 @@ create_variables() {
 
 # Execute parse_yaml() direct from command line
 
-if [ "x" != "x${1}" ] && [ "x--debug" != "x${1}" ]; then
-    parse_yaml "${1}" "${2}"
+if [ "x" != "x${1:-}" ] && [ "x--debug" != "x${1:-}" ]; then
+    parse_yaml "${1}" "${2:-}"
 fi
